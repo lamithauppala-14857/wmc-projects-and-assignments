@@ -1,0 +1,15 @@
+===== SIMULATION RESULT 3 =====
+Nodes = 50
+Packets = 1000
+
+Packets Sent = 2668
+Packets Received = 2145
+Packet Delivery Ratio (PDR) = 80.3973 %
+
+End-to-End Delay = 0.169874 sec
+Average Jitter = 0.0757069 sec
+Throughput = 152.28 Kbps
+
+Communication Overhead = 120 pkts
+Computational Overhead = 364.379 sec per pkt
+Average Energy Consumption = 14.5484 Joules

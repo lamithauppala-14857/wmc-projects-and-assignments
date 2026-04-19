@@ -1,0 +1,814 @@
+\documentclass[a4paper,fleqn]{cas-dc}
+\usepackage[numbers]{natbib}
+
+\usepackage{mathtools}
+\usepackage{booktabs}
+
+\usepackage{flushend}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{chngcntr}
+\counterwithin{figure}{subsection}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{amssymb}  % Add this for \mathbb
+\usepackage{tikz}
+\usepackage{subcaption}
+
+\numberwithin{equation}{section}
+
+\begin{document}
+\let\WriteBookmarks\relax
+\def\floatpagepagefraction{1}
+\def\textpagefraction{.001}
+
+\shorttitle{Intelligent Intrusion Detection Framework}
+\shortauthors{S Gopikrishnan et~al.}
+
+\title [mode = title]{Latency-Bounded MAC Scheduling for Mission-Critical Wireless IoT Systems}                      
+
+%name:U.Lamitha
+%reg.no:23mic7250
+%gmail:lamithauppala@gmail.com
+%vitap mail:lamitha.23mic7250@vitapstudent.ac.in
+%orcid:0009-0007-1851-4906
+
+\author[1]{U.Lamitha}[orcid=0009-0007-1851-4906]
+\ead{lamithauppala@gmail.com}
+\address[1]{School of Computer Science and Engineering, VIT-AP University, Amaravathi. Andhra Pradesh, India}
+
+%
+\author[2]{U.Lamitha}[orcid=0009-0007-1851-4906]
+\ead{lamithauppala@gmail.com}
+
+
+\author[3]{U.Lamitha}[orcid=0009-0007-1851-4906]
+\ead{lamithauppala@gmail.com}
+%
+
+
+\cortext[cor1]{Corresponding author}
+
+\begin{abstract}
+The growing proliferation of devices on the Internet of Things (IoT) has made modern networks increasingly vulnerable to sophisticated cyber threats. Traditional intrusion detection systems (IDS) struggle to maintain high detection accuracy in the presence of high-dimensional data and extreme class imbalance, particularly for rare but critical attacks. The growing proliferation of devices on the Internet of Things (IoT) has made modern networks increasingly vulnerable to sophisticated cyber threats. Traditional intrusion detection systems (IDS) struggle to maintain high detection accuracy in the presence of high-dimensional data and extreme class imbalance, particularly for rare but critical attacks. The growing proliferation of devices on the Internet of Things (IoT) has made modern networks increasingly vulnerable to sophisticated cyber threats. Traditional intrusion detection systems (IDS) struggle to maintain high detection accuracy in the presence of high-dimensional data and extreme class imbalance, particularly for rare but critical attacks. The growing proliferation of devices on the Internet of Things (IoT) has made modern networks increasingly vulnerable to sophisticated cyber threats. Traditional intrusion detection systems (IDS) struggle to maintain high detection accuracy in the presence of high-dimensional data and extreme class imbalance, particularly for rare but critical attacks. The growing proliferation of devices on the Internet of Things (IoT) has made modern networks increasingly vulnerable to sophisticated cyber threats. Traditional intrusion detection systems (IDS) struggle to maintain high detection accuracy in the presence of high-dimensional data and extreme class imbalance, particularly for rare but critical attacks.
+\end{abstract}
+
+\begin{keywords}
+Intrusion Detection System (IDS) \sep 
+Internet of Things (IoT) \sep 
+Class Imbalance \sep 
+Feature Selection \sep
+Deep Learning \sep 
+Convolutional neural networks (CNN) \sep
+Data Augmentation
+\end{keywords}
+
+\maketitle
+\section{Introduction}
+Wireless networks are at the heart of Industry 4.0 and the Industrial Internet of Things (IoT), offering more flexibility and scalability than their wired counterparts.Time-synchronized channel-hopping (TSCH) is widely regarded as the de-facto low-power wireless networking approach for demanding industrial applications, achieving ultra low-power and wire-like reliability.Its core features are time-division multiple-access (TDMA) and frequency diversity, making it ideal for real-time communication, and therefore often applied to real-time monitoring and process control.These works typically focus on prioritized packet scheduling and routing methods for improved real-time network performance.In this work, we simultaneously deal with network design, routing, and resource allocation to provide a joint configuration framework for improved real-time network performance.
+\subsection{Limitations of Existing TSCH Scheduling Approaches}
+
+It is clear that the reliability and determinism have been greatly improved when evaluating the performance of TSCH-based MAC scheduling in industrial IoT networks. However, meeting stringent latency requirements for mission-critical dynamic applications remains an open challenge. Existing approaches to scheduling, including static, energy efficiency, and throughput optimization, are not very reliable in guaranteeing bounded latency for heterogeneous, time-critical traffic. Centralized methods cannot be scaled, and completely decentralized approaches do not benefit from global optimization. This is why we need an adaptive, latency-aware MAC scheduler that can efficiently support these high-stakes IoT applications.
+
+\subsection{Research Objectives}
+The first objective of this research is to ensure that critical IoT data reaches its destination on time. In many IoT systems, some data is extremely important and cannot be delayed. This work primarily focuses on giving higher priority to such data in order to minimize delays as much as possible. At the same time, the system should not completely disregard other devices. Even when numerous devices are connected and the network is busy, the scheduling method should still function properly.
+
+ The second objective is to design a TSCH-based MAC scheduling system that can handle changes in the network smoothly. In real-life IoT networks, conditions continually change due to interference, moving devices, and varying traffic needs. This research aims to make the scheduling system flexible enough to adjust itself based on these changes. The idea is to maintain stable and reliable communication even when the network situation is not fixed or predictable.
+ 
+The third objective of this research is to avoid depending on a central controller for scheduling decisions. Centralized control can become slow and inefficient when the network grows large. Instead, this work focuses on a distributed approach where devices can take scheduling decisions locally. This helps the network scale better and continue working without interruptions. The main goal is to maintain reliable and low-delay communication in multi-hop IoT networks, especially for mission-critical applications.
+
+\section{Literature Survey}
+\subsection{MAC Scheduling and TSCH-Based Optimization Techniques}
+
+Leveraging these results\cite{mohan2024low}, it leads to the proposed two distributed protocols, QZMAC and EZMAC, which perform much better than those available in the literature, both with respect to mean delay and system backlog distributions. Using these methods\cite{zhang2022research}, this article analyzes the performance of typical MAC scheduling policies, including throughput performance and delay performance. The research work of this paper provides a theoretical basis for the design and evaluation of MAC scheduling policies.
+
+
+This paper evaluated the performance of reinforcement learning mechanisms to optimize scheduling in TSCH-based networks\cite{ben2025optimizing}. It also applied deep Q-learning (DQN), double DQN, and prioritized DQN (PDQN) in a TSCH environment. Adaptive scheduling decisions help improve fixability and network performance. This paper presents a novel framework \cite{gaitan2022joint}for joint scheduling, routing, and gateway designation in real-time TSCH networks.
+
+
+To address this issue, in this paper,\cite{raut2024priority} a priority-based adaptive MAC protocol called ML-MAC is proposed. The proposed algorithm uses an adaptive learning approach for channel allocation and optimal routing path selection to support mission-critical data transfer in WSNs. In addition, ML-MAC proposes a multi-priority-based adaptive mechanism constructed considering elements such as data priority, node’s residual energy, and link quality.
+
+\subsection{Surveys, Delay Modelling, and Deterministic Communication in IoT Networks}
+
+This study presented a priority-based dynamic TDMA MAC protocol\cite{gul2025priority} that dynamically allocates slots to the nodes based on their priorities, traffic requirements, and residual energies. This article proposed a new medium access protocol called WirArb,\cite{zheng2015wirarb} which achieves time-critical data delivery in wireless sensor networks with low energy expenditure. In WirArb, each user is pre-assigned a dedicated arbitration frequency to determine the order for users to gain channel access. This way, it offers a collision-free and deterministic communication over the wireless medium.
+
+Unlike current protocols\cite{hai2022design}, an LLD algorithm is intended to choose the best route for data transmission between the nodes from the source to the destination. When compared to existing protocols, an LLD algorithm may decrease the end-to-end latency and packet loss rate among nodes in a regularly deployed node. This paper surveys the state of the art of TSCH scheduling\cite{urke2021survey} targeting the industrial domain, with a total of 76 TSCH schedulers identified, analyzed and evaluated. Each scheduler is categorised according to the generation of the schedule: Collaborative, Autonomous, Centralized, Hybrid, or Static.
+
+This work introduces a comprehensive approach to modelling end-to-end delays in wireless sensor networks with TSCH. Using queuing theory,\cite{shudrenko2024modeling} stochastics, and combinatorics, formulas are derived for sojourn times under different traffic models, while also taking into account a lossy medium. A practical, algorithmic application of these formulas is proposed to estimate end-to-end delays for arbitrary TSCH networks. This paper surveys the most prominent RL-based TDMA MAC schedulers\cite{carie2023directional} for the IoT. From this table,\cite{kherbache2022reinforcement} it can be noticed that 44 percent of the papers focus mainly on energy objectives, while the rest are more QoS directed. However, there are no papers that consider both of the issues at the same time. In addition, Quality of Experience (QoE) is not really exploited in these works, and applications’ needs should be better considered. Real-time IoT scheduling publications\cite{abolhassani2022real} were analyzed in this study using a systematic review method, and the overall concept of IoT real-time scheduling, aims, and open issues were determined. This paper introduced ELISE,\cite{jurado2024elise} an open-source framework that utilizes deep RL to optimize the slot frame size of TSCH for SDN-based IoT networks. This systematic review synthesized \cite{richter2023usability}60 recent studies on IWNs. It assesses how progress is distributed across key Industry 4.0 requirements, including reliability, security, time synchronization, energy management, networking, and interoperability, and experimental validation. Third, time synchronization and deterministic scheduling are maturing, and wireless solutions can increasingly approach timing guarantees traditionally associated with wired industrial control. As a result, \cite{gao2020mac}the proposed MAC can support many devices with sporadic data packets under a single AP and a single channel, while achieving a (sub)millisecond-level delay and very low collision probability. In this work, \cite{kherbache2023decentralized}an overview of decentralized schedulers has been provided, including classification into three main categories: autonomous, distributed, and RL-based. In the literature, the evaluation of such schedulers has not been investigated under highly heterogeneous traffic conditions. This paper has offered a comprehensive survey\cite{zanbouri2024comprehensive} and evaluation of the existing literature on the extension of Time-Sensitive Networking (TSN) for wireless communication systems and the deployment of wireless TSN in various application domains. The result obtained from this paper\cite{tavallaie2021design} is that it proposed a Parameterized Adaptive and Autonomous Scheduling (PAAS) in TSCH for IoT data delivery in Low power and Lossy Networks.In this paper\cite{jung2018parameterized}, proposed a result that consists of DT-SF, a distributed traffic-aware TSCH scheduling for mobile IoT applications.
+DT-SF allocates TSCH cells based on the queue backlog, node mobility, and the rate of packet generation.
+
+
+\begin{table*}[htbp]
+\centering
+\caption{Literature Survey of TSCH-based MAC Scheduling Approaches (R21--R30)}
+\label{tab:litsurvey_r23_r32}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|p{3.2cm}|p{3.2cm}|p{3.4cm}|p{3.2cm}|}
+\hline
+\textbf{Ref. No.} & \textbf{Method Proposed} & \textbf{Techniques Used} & \textbf{Issues Resolved} & \textbf{Limitations} \\
+\hline
+R21 & Traffic-aware-TSCH scheduling for industrial IoT\cite{brun2019optimized} & Dynamic slot allocation, traffic load estimation & Reduces packet collisions and improves latency under varying traffic & Depends on accurate traffic estimation \\
+\hline
+R22 & Distributed-MAC scheduling approach for TSCH networks\cite{vindhyan2020low} & Local negotiation, decentralized slot assignment & Enhances scalability and adaptability to topology changes & Lacks global optimization for end-to-end latency \\
+\hline
+R23 & Priority-based scheduling framework\cite{khisa2021priority}for mission-critical-IoT data & Priority queues, differentiated service scheduling & Ensures timely delivery of critical packets & Lower-priority traffic may experience starvation \\
+\hline
+R24 & Reinforcement learning-based-TSCH scheduler\cite{shudrenko2024modeling} & Reinforcement learning, adaptive decision-making & Improves reliability and packet delivery ratio & Training overhead and convergence time \\
+\hline
+R25 & Joint routing and MAC scheduling for real-time TSCH networks\cite{tavallaie2023gt} & Cross-layer optimization, routing-aware scheduling & Improves schedulability of real-time flows & Increased computational complexity \\
+\hline
+R26 & Mobility-aware TSCH scheduling for industrial IoT\cite{choudhury2021centralized} & Link quality monitoring, adaptive rescheduling & Maintains low latency under node mobility & Limited evaluation in large-scale networks \\
+\hline
+R27 & Energy-efficient TSCH MAC protocol for dense IoT deployments\cite{yoo2021analysis} & Slot reuse, spatial scheduling & Reduces energy consumption and improves throughput & Less focus on strict latency guarantees \\
+\hline
+R28 & Deterministic TSCH scheduling for time-sensitive applications\cite{carie2023directional} & Fixed slotframes, deterministic access & Guarantees bounded latency and reliability & Less flexible under dynamic traffic conditions \\
+\hline
+R29 & Hybrid-centralized–distributed TSCH scheduling\cite{jeong2019tesla} & Central planning with local adjustments & Balances latency optimization and scalability & Coordination overhead required \\
+\hline
+R30 & Analytical framework for end-to-end delay estimation in TSCH networks\cite{kim2019alice} & Queuing theory, stochastic modeling & Enables latency evaluation without testbeds & Does not directly optimize scheduling decisions \\
+\hline
+\end{tabular}
+\end{table*}
+
+\subsection{Research Gap and Motivation}
+Speaking of Time-Sensitive Communication for industrial IoT networks, TSCH-based MAC scheduling has been a game-changer, but ensuring strict latency bounds for mission-critical and dynamic applications is still a challenge. Most current scheduling methods are preoccupied with static configurations, energy efficiency or maximizing throughput. Most current scheduling methods are preoccupied with static configurations, energy efficiency, or maximizing throughput, which do not cut it when faced with a mixed bag of traffic types, some of which need to be delivered in real time. 
+Centralized schedulers cannot scale well and place a huge overhead on the network, and fully decentralized systems cannot see the whole picture. The result is a need for a smart MAC scheduler that can readjust its strategy as the network changes and lock down latency for those critical applications.
+ 
+\section{Problem Statement}
+ Even though TSCH-based MAC scheduling has improved reliability in wireless IoT networks, making sure that important data always reaches on time is still a serious problem. Many existing scheduling methods mainly try to save energy or improve throughput, but they do not focus enough on delay. When the network becomes crowded or when different types of traffic exist, time-critical data may get delayed. This is especially risky for mission-critical IoT applications where late data can cause failures or wrong decisions.
+
+Another major issue is the way scheduling is controlled in the network. Centralized scheduling methods do not scale well when the number of devices increases and they also add extra control overhead. On the other hand, fully decentralized methods do not have a global view of the network and may not make optimal decisions. Because of these limitations, predictable end-to-end delay is difficult to achieve in multi-hop IoT networks. Hence, there is a strong need for an adaptive and latency-aware TSCH-based MAC scheduling approach that can adjust to network changes and prioritize mission-critical data while maintaining reliable communication.
+
+\section{Proposed Work}
+
+
+
+The model consists of N stationary sensor nodes randomly distributed in a region over which a CubeSat nanosatellite in Low Earth Orbit passes. The spacecraft has a velocity Vs and an average orbit height hs. Sensor nodes are the sole source of useful data traffic, and the traffic model follows a deterministic distribution whose generation pattern is periodic with frequency fgen. The proposed protocol is designed for mission-critical applications where latency constraints are important, allowing the nodes to prioritize time-critical data and transmit it within bounded delay. Sensor nodes are placed in a square region with a side length L, and they keep their radios off while no useful data is available to transmit. The nanosatellite receives these packets, stores them, and downloads them at the closest ground station on its path. Communications between the spacecraft and the nodes are performed using LoRa technology, and the time-varying propagation delays between each node and the nanosatellite are considered.
+
+\subsection{Network Model}
+
+The network model considers a latency-bounded mission-critical wireless IoT system where N stationary sensor nodes are randomly distributed in a region over which a CubeSat nanosatellite in Low Earth Orbit passes. The spacecraft has a velocity Vs and an average orbit height hs.Sensor nodes are the only source of useful data traffic, and the traffic model follows a deterministic distribution whose generation pattern is periodic with frequency f{gen}. The proposed protocol is designed for applications where controlled delay is required, allowing the nodes to store the generated traffic until it is possible to transmit it to the satellite.
+
+Sensor nodes are placed in a square region with side L, and they keep their radios off while no useful data is available to transmit. The nanosatellite receives these packets, stores them, and downloads them at the closest ground station on its path. Communications between the spacecraft and the nodes are performed using LoRa technology, and the time-varying propagation delays between each node and the nanosatellite are considered. The nodes turn on their radios only when the spacecraft is visible and synchronization or transmission is required.
+
+\subsubsection{Network Assumptions}
+
+The data packets have fixed and equal lengths. The channel is considered ideal with no capture effect at the receiver. A reception is successful only when no interference from other transmissions is present, and a collision occurs if two or more packets overlap in time. The nodes have information about the trajectory and the position of the satellite through ephemeris data or orbital parameters. The nodes activate their radios only when required, and desynchronization between node and satellite clocks is bounded.
+
+\subsubsection{Physical Layer Model}
+
+LoRa technology is used at the physical layer for communication between sensor nodes and the nanosatellite. The modulation is based on Chirp Spread Spectrum, allowing multiple signals to coexist simultaneously on the same channel. Signals are modulated with orthogonal spreading factors defined with different bit rates.
+
+\begin{equation}
+R_m = \frac{2^{SF}}{BW}
+\label{eq:rm}
+\end{equation}
+
+\begin{equation}
+R_{data} = \frac{SF}{4+CR} \times \frac{2^{SF}}{BW}
+\label{eq:rdata}
+\end{equation}
+
+The packet duration is defined as
+
+\begin{equation}
+T_{packet} = T_{sym} \times N_{sym}
+\label{eq:tpacket}
+\end{equation}
+
+\begin{equation}
+T_{sym} = \frac{2^{SF}}{BW}
+\label{eq:tsym}
+\end{equation}
+
+\begin{equation}
+N_{sym} = (N^{preamble}_{sym} + 4.25) + N^{h\&p}_{sym}
+\label{eq:nsym}
+\end{equation}
+
+\subsubsection{MAC Layer Model}
+
+The MAC protocol operates based on a slotted structure with contention and scheduling mechanisms. The protocol is inspired by request and response exchange mechanisms and uses structured time windows for transmission. Data generation and transmission are independent processes, where sensor nodes store generated data in buffers until transmission opportunities arise.
+
+Nodes operate under duty-cycled behavior and switch between transmitting, receiving, and sleeping states. Scheduling is required to handle channel access, failure control, and efficient data transmission while maintaining energy efficiency.
+
+\subsubsection{Queue and Traffic Model}
+
+Each node maintains buffers for storing generated data and relayed packets. The packet generation follows a probabilistic process, and the buffer states evolve over time.
+
+\begin{equation}
+p_t(i) = \frac{1 - p_{e,e}(i)^N}{N(1 - p_{e,e}(i))}
+\label{eq:pt}
+\end{equation}
+
+\begin{equation}
+p_r(i) = p_t(i+1)\left(1 - p_{e,e}(i+1)\right)
+\label{eq:pr}
+\end{equation}
+
+\begin{equation}
+p_b(i) = 1 - p_t(i)
+\label{eq:pb}
+\end{equation}
+
+The buffer states are represented using a Markov chain model where transition probabilities define the evolution of packets in local and relay buffers.
+
+\begin{equation}
+p_{e,e}(i) = \pi_{0,0}(i)
+\label{eq:pee}
+\end{equation}
+
+\begin{equation}
+\pi^l_k(i) = \sum_{m=0}^{N} \pi_{m,k}(i)
+\label{eq:local}
+\end{equation}
+
+\begin{equation}
+\pi^r_k(i) = \sum_{u=0}^{N} \pi_{k,u}(i)
+\label{eq:relay}
+\end{equation}
+
+\subsubsection{Scheduling and Delay Structure}
+
+The network follows a time-slotted structure where nodes contend for channel access using priority-based mechanisms. The slot structure includes control exchange and data transmission phases.
+
+\begin{equation}
+T_c = (\xi + 2)T
+\label{eq:cycle}
+\end{equation}
+
+\begin{equation}
+T = \tau_{msg} + \sigma N
+\label{eq:slot}
+\end{equation}
+
+\begin{equation}
+\tau_{msg} = \tau_{difs} + \tau_{rts} + \tau_{cts} + \tau_{data} + \tau_{ack} + 3\tau_{sifs}
+\label{eq:msg}
+\end{equation}
+
+The scheduling mechanism ensures that nodes access the channel in an organized manner, reducing collisions and supporting latency-aware communication in mission-critical IoT systems.
+
+
+IoT devices generally suffer from device resource restrictions and protocol design challenges. IoT devices are severely constrained in terms of power supply, communication capability, and memory units, and power consumption is the primary restriction placed upon them. The MAC protocol is responsible for handling channel access mechanisms, failure control, and validation of superframes. MAC protocols such as CSMA/CA and TDMA focus on specific network parameters while ignoring delay requirements, and hybrid MAC protocols cannot ensure latency guarantees in high-density networks. Accordingly, an effective power-saving structure using a dynamic and latency-aware scheduling MAC technique is considered, where groups of devices are scheduled and forced into sleep mode while prioritizing mission-critical traffic. The proposed scheduler hybrid MAC protocol introduces a sleep-wake-up extension to the IEEE 802.15.4 mechanism and improves channel access efficiency while ensuring timely delivery of critical data and extending the lifetime of IoT devices.
+
+\subsubsection{Delay Model}
+
+Packets sent from the source node must be queued and forwarded to the destination node. The MAC scheduling method divides the time axis into time-slots and completes the input and output of the queue in each time-slot. Nodes are required to maintain data queues in both single-channel and multi-channel networks. The queue update action includes the arriving and sending of packets. According to the scheduling algorithm, when a queue is scheduled in this time-slot, data will leave the queue and be sent to the destination or to the next-hop node. :contentReference[oaicite:0]{index=0}  
+
+Let $A_l(n)$ represent the number of packets arriving at link $l$ at time-slot $n$ and the value of $A_l(n)$ in each time-slot constitute a stochastic arrival process $\{A_l(n)\}$. The random variables $A_l(n)$ in different time-slots are independent and identically distributed with a mean of $\lambda_l$. The average input load of the system is $\lambda = [\lambda_1, \ldots, \lambda_L]$. Let $q_l(n)$ denote the queue length of link $l$ in time-slot $n$. Assume that the capacity of link $l$ is fixed and denoted by $c_l$. Indicator variable $\phi_l(n)$ is used to indicate whether link $l$ is scheduled in time-slot $n$. :contentReference[oaicite:1]{index=1}  
+
+The queue update process can be expressed as
+
+
+
+\begin{equation}
+q_l(n+1) = \left[ q_l(n) + A_l(n) - \phi_l(n)\, c_l \right]^+
+\end{equation}
+
+
+
+
+For wireless networks, weak and strong stability is an important basis for evaluating network performance, which directly determines the throughput and end-to-end delay of data flows. Weak stability can maintain the queue lengths finite, and the network system can bear the current input load and guarantee throughput under this condition. However, weak stability cannot further provide bounded end-to-end delay. :contentReference[oaicite:2]{index=2}  
+
+For wireless networks, if the queue lengths satisfy
+
+\begin{equation}
+\limsup_{n \to \infty} \frac{1}{n} \sum_{\sigma=1}^{n} \sum_{l=1}^{L} \mathbb{E}[q_l(\sigma)] < \infty
+\end{equation}
+
+then the network is considered to be strongly stable. :contentReference[oaicite:3]{index=3}  
+
+
+
+If strong stability is satisfied, then according to Little’s Law, the end-to-end average delay of all data flows is given by
+
+\begin{equation}
+D = \frac{\limsup_{n \to \infty} \frac{1}{n} \sum_{\sigma=1}^{n} \sum_{l=1}^{L} \mathbb{E}[q_l(\sigma)]}{\sum_{l=1}^{L} \lambda_l}
+\end{equation}
+
+where $D$ denotes the end-to-end average delay of all data flows. :contentReference[oaicite:4]{index=4}  
+
+Hence, strong stability can guarantee an upper bound of the end-to-end average delay of data flows and can provide better network QoS. :contentReference[oaicite:5]{index=5}  
+
+\begin{table*}[t]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\caption{Delay Model Parameters and Their Impact in Latency-Bounded MAC Scheduling}
+\begin{tabular}{|c|p{5cm}|p{5cm}|}
+\hline
+\textbf{Metric} & \textbf{Description} & \textbf{Impact on System Performance} \\
+\hline
+
+Queue Length ($q_l(n)$) 
+& Represents the number of packets present in link $l$ at time slot $n$ 
+& Higher queue length increases waiting time and directly contributes to end-to-end delay \\
+\hline
+
+Arrival Process ($A_l(n)$) 
+& Number of packets arriving at link $l$ during time slot $n$ 
+& Higher arrival rates increase congestion and may lead to delay growth \\
+\hline
+
+Service Rate ($c_l$) 
+& Capacity of link $l$ for transmitting packets 
+& Higher service rate reduces backlog and improves delay performance \\
+\hline
+
+Scheduling Decision ($\phi_l(n)$) 
+& Indicates whether link $l$ is scheduled for transmission 
+& Efficient scheduling reduces queue buildup and ensures latency bounds \\
+\hline
+
+Queue Update Equation 
+& $q_l(n+1) = \max(q_l(n) + A_l(n) - \phi_l(n)c_l, 0)$ 
+& Determines queue evolution and directly affects delay dynamics \\
+\hline
+
+Lyapunov Function ($V(n)$) 
+& $V(n) = \sum c_l [q_l(n)]^2$ used for stability analysis 
+& Helps in ensuring bounded queues and stable delay performance \\
+\hline
+
+Lyapunov Drift ($\Delta(q(n))$) 
+& Expected change in Lyapunov function over time 
+& Negative drift ensures system stability and bounded delay \\
+\hline
+
+Average Delay ($D$) 
+& End-to-end delay experienced by packets 
+& Lower delay ensures better performance in mission-critical systems \\
+\hline
+
+Efficiency Ratio ($\gamma$) 
+& Measures efficiency of scheduling policy 
+& Higher efficiency improves throughput and reduces delay \\
+\hline
+
+\end{tabular}
+\end{table*}
+
+\subsubsection{Energy Model}
+
+IoT devices generally suffer from device resource restriction, where power consumption is the primary restriction placed upon them, as they are severely constrained in terms of power supply, communication capability and memory units. Sensor nodes are traditionally powered by small batteries with limited capacity, and periodic battery replacement is infeasible due to deployment in critical environments and the large number of IoT devices. Hence, energy efficiency plays an essential role in extending the lifetime of IoT networks.
+
+The energy consumption in the network is influenced by MAC protocol operations, since the MAC protocol is responsible for handling channel access mechanisms, failure control and validation of transmissions, and the radio consumes the highest amount of energy. Energy inefficiency occurs due to collision, overhearing, control packet overhead and idle listening, where idle listening consumes a significant portion of energy as nodes listen for traffic that is not sent. Over-emitting and improper transmission power allocation further increase energy consumption, which degrades network performance.
+
+The nodes keep their radios off while no useful data is available to transmit, and turn on their radios only when the spacecraft is visible and they have data available to transmit or require synchronization. The nodes switch between transmitting, receiving and sleeping states, and energy consumption depends on the duration spent in each state.
+
+The total energy consumption of a node can be expressed as
+\begin{equation}
+E_{total} = E_{tx} + E_{rx} + E_{idle} + E_{sleep}
+\label{eq:energy_total}
+\end{equation}
+
+The transmission energy is given by
+\begin{equation}
+E_{tx} = P_{tx} \cdot T_{tx}
+\label{eq:energy_tx}
+\end{equation}
+
+The reception energy is given by
+\begin{equation}
+E_{rx} = P_{rx} \cdot T_{rx}
+\label{eq:energy_rx}
+\end{equation}
+
+The idle listening energy is expressed as
+\begin{equation}
+E_{idle} = P_{idle} \cdot T_{idle}
+\label{eq:energy_idle}
+\end{equation}
+
+The sleep energy is given by
+\begin{equation}
+E_{sleep} = P_{sleep} \cdot T_{sleep}
+\label{eq:energy_sleep}
+\end{equation}
+
+Energy inefficiency due to collision can be represented as
+\begin{equation}
+E_{coll} = N_{coll} \cdot E_{tx}
+\label{eq:energy_collision}
+\end{equation}
+
+Energy consumed due to overhearing is expressed as
+\begin{equation}
+E_{over} = P_{rx} \cdot T_{over}
+\label{eq:energy_overhearing}
+\end{equation}
+
+Energy consumed due to control packet overhead is given by
+\begin{equation}
+E_{ctrl} = N_{ctrl} \cdot (E_{tx} + E_{rx})
+\label{eq:energy_control}
+\end{equation}
+
+The effective energy consumption considering inefficiencies is expressed as
+\begin{equation}
+E_{eff} = E_{total} + E_{coll} + E_{over} + E_{ctrl}
+\label{eq:energy_effective}
+\end{equation}
+
+
+MAC protocols, such as CSMA CA and TDMA, focus on specific network parameters while ignoring others. TDMA considers energy saving but neglects throughput, delay and channel utilization, and it is difficult to adapt the channel to variations in network density, leading to inefficient channel utilization or limited network scalability. Hybrid MAC protocols combine the strengths of these approaches but cannot ensure efficient energy saving in high-density networks. Accordingly, an effective power-saving structure using a dynamic scheduling MAC technique is considered, where groups of devices are forced into sleep mode with different sleep periods. The scheduling mechanism adapts according to network conditions such as high collision or channel failure to determine which group of devices will be active in a given slot, and extended sleep periods help to extend the battery life of IoT devices.
+
+\subsection{Overview}
+
+\subsubsection{Phase 1: Network Model Initialization}
+
+We consider a wireless network comprising several source nodes transmitting to a common receiver node. Time is assumed slotted, where the slots are indexed and in each slot a single node can transmit successfully. We model the system as a network of parallel queues with a single shared server, whose service has to be scheduled between the queues. :contentReference[oaicite:0]{index=0}
+
+\subsubsection{Phase 2: Traffic Arrival and Queue Formation}
+
+Each node receives a stochastic arrival process embedded at the slot boundaries where $A_j(t)$ denotes the number of arrivals to queue $j$ at time slot $t$. The arrival processes are independent and identically distributed with mean $\lambda_j$ and the backlog at queue $j$ at the beginning of time slot $t$ is denoted by $Q_j(t)$. :contentReference[oaicite:1]{index=1}
+
+\begin{equation}
+\label{eq:4.18}
+q_l(n + 1) = [q_l(n) + A_l(n) - \phi_l(n)c_l]^+
+\end{equation}
+
+\subsubsection{Phase 3: Scheduling Decision (MAC Layer)}
+
+The MAC scheduling method divides the time axis into time-slots and completes the input and output of the queue in each time-slot and according to the scheduling algorithm when a queue is scheduled in this time-slot data will leave the queue and be sent to the destination or to the next-hop node. The indicator variable $\phi_l(n)$ is used to indicate whether link $l$ is scheduled in time-slot $n$ where $\phi_l(n)=1$ if scheduled and $0$ otherwise. :contentReference[oaicite:2]{index=2}
+
+\subsubsection{Phase 4: Delay-Aware Transmission}
+
+A packet transmission from node $j$ in slot $t$ leads to a departure from the corresponding queue and the evolution of the queue-length process at queue $j$ can be described as
+
+\begin{equation}
+\label{eq:4.19}
+Q_j(t+1) = (Q_j(t) - D_j(t))^+ + A_j(t+1)
+\end{equation}
+
+where $D_j(t)\in\{0,1\}$ indicates whether queue $j$ is scheduled for service in slot $t$. :contentReference[oaicite:3]{index=3}
+
+\subsubsection{Phase 5: Queue Update \& Stability (Lyapunov)}
+
+The queue update process can be expressed and it can be seen that the stochastic process constituted by all queue lengths is an irreducible and non-periodic Discrete Time Markov Chain. For wireless networks weak stability and strong stability are important bases for evaluating network performance where weak stability can maintain the queue lengths finite and strong stability ensures that the end-to-end transmission delay can be upper bounded.
+
+\begin{equation}
+\label{eq:4.20}
+\lim_{n\to\infty} Pr\left\{\sum_{l=1}^{L}[q_l(n)]^2 > \Psi \right\} < \upsilon
+\end{equation}
+
+\begin{equation}
+\label{eq:4.21}
+\limsup_{n\to\infty} \frac{1}{n} \sum_{\sigma=1}^{n} \sum_{l=1}^{L} E[q_l(\sigma)] < \infty
+\end{equation}
+
+\begin{equation}
+\label{eq:4.22}
+D = \frac{\limsup_{n\to\infty} \frac{1}{n} \sum_{\sigma=1}^{n} \sum_{l=1}^{L} E[q_l(\sigma)]}{\sum_{l=1}^{L}\lambda_l}
+\end{equation}
+
+:contentReference[oaicite:4]{index=4}
+
+\subsubsection{Phase 6: Adaptive Slot Allocation / Re-scheduling}
+
+According to the scheduling algorithm when a queue is scheduled data will leave the queue and when the incumbent queue becomes empty a switching decision needs to be made to select another queue and the next queue is selected based on the scheduling policy to continue transmission. :contentReference[oaicite:5]{index=5}
+
+\section{Algorithm Design}
+
+TSCH has emerged as the de facto MAC standard for industrial IoT (IIoT) applications due to its ability to provide reliable and energy-efficient communication. However, its performance significantly degrades under unpredictable traffic patterns and rapidly changing network conditions, where the packet delivery ratio (PDR) is reduced and latency increases. Existing predefined scheduling mechanisms are limited by their static nature; they lack adaptability to dynamic traffic loads and fail to prevent collisions efficiently in environments with interference.
+
+To bridge this gap, adaptive and intelligent scheduling is required, where reinforcement learning (RL) enables agents to interact with the network environment and progressively optimize scheduling decisions. By modeling slot and channel selection as a Markov decision process (MDP), the state space represents network conditions such as interference levels and link quality, the action space consists of selecting slots and channels for packet transmission, and the reward function is designed to avoid collisions and maximize the packet delivery ratio.
+
+The Q-value for a state--action pair depends on the Bellman equation:
+\begin{equation}
+Q(S_t, A_t) \leftarrow Q(S_t, A_t) + \alpha \left[ R_t + \gamma \max_{a'} Q(S_{t+1}, a') - Q(S_t, A_t) \right]
+\tag{4.18}
+\end{equation}
+
+\subsection{DQN-Based TSCH Scheduling}
+
+In this part, we formulate the use of deep Q-networks (DQNs) in the context of time-slotted channel hopping (TSCH) scheduling. While designing the proposed RL scheduling mechanism, different constraints such as energy consumption optimization, interference avoidance, and transmission reliability are considered. The objective of the proposed solution is to assign the channel that minimizes interference by avoiding channels that may lead to collisions, while efficient scheduling strategies reduce energy consumption and improve the packet delivery ratio.
+
+We model the TSCH network as a Markov decision process (MDP) based on the state space, action space, and reward function. The state space represents network conditions such as interference levels and link quality, and the action space consists of selecting slots and channels for packet transmission. The reward function evaluates the selection of channels based on PDR values, encouraging the agent to adopt a strategy that improves communication reliability and maximize network performance and data delivery.
+
+The process begins with initializing the simulation environment and the DQN agent, which is trained through multiple episodes. In each episode, the agent verifies the network state, selects an action using an $\epsilon$-greedy policy, and receives a reward based on the effectiveness of the selection. The experience is stored and used to update the DQN model through replay of experiences, ensuring improved decision-making over time, while the exploration rate $\epsilon$ is gradually reduced to favor exploitation over exploration.
+
+\begin{algorithm}
+\caption{DQN-Based TSCH Scheduling}
+\begin{algorithmic}
+
+\State Initialize simulation environment
+\State Initialize DQN agent with neural network
+
+\For{each episode}
+    \State Reset environment
+    
+    \For{each step}
+    
+        \If{random action with probability $\epsilon$}
+            \State Choose random channel
+        \Else
+            \State Choose channel with highest Q-value
+        \EndIf
+        
+        \State Execute action and observe reward
+        \State Store transition in memory
+        \State Update network using experience replay
+        \State Reduce $\epsilon$
+        
+    \EndFor
+    
+\EndFor
+
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Double DQN for TSCH Scheduling}
+
+The double deep Q-network (double DQN) is an enhanced form of the deep Q-network (DQN) proposed to minimize over-estimation in Q-learning. In standard DQN, the use of the same neural network in both selecting and evaluating actions leads to Q-value overestimation, while double DQN uses two different networks to select the best action and estimate its value. The online network selects the action with the highest Q-value and the target network evaluates the action to reduce overestimation.
+
+\begin{algorithm}
+\caption{Double DQN for TSCH Scheduling}
+\begin{algorithmic}
+
+\State Initialize environment
+\State Initialize online and target networks
+\State Set $\epsilon \gets 1.0$
+
+\For{each episode}
+    \State Reset environment
+    
+    \For{each step}
+    
+        \If{random action with probability $\epsilon$}
+            \State Choose random action
+        \Else
+            \State Choose action using online network
+        \EndIf
+        
+        \State Execute action and observe reward and next state
+        \State Store transition in replay memory
+        \State Sample mini-batch
+        \State Compute target using target network
+        \State Train online network
+        
+        \If{update condition satisfied}
+            \State Update target network
+        \EndIf
+        
+        \State Decay $\epsilon$
+        
+    \EndFor
+    
+\EndFor
+
+\end{algorithmic}
+\end{algorithm}
+
+Double DQN improves learning efficiency by using separate networks and aims to learn the optimal action strategy that enhances future rewards. The Q-value update uses the Bellman equation, where the action selected by the online network is evaluated using the target network. The objective is to maximize the cumulative discounted rewards, ensuring improved scheduling decisions and enhanced network performance.
+
+The process includes initializing the TSCH scheduling environment and the double DQN agent with online and target networks. The agent selects actions using an $\epsilon$-greedy policy, applies the action, observes the reward, and stores the transition in replay memory. The model is trained using sampled mini-batches, and the target network is updated periodically while the exploration rate decays over time to shift from exploration to exploitation.
+
+
+
+\subsection{PER-DQN for TSCH Scheduling}
+
+The prioritized experience replay deep Q-network (PER-DQN) is an enhancement of the standard deep Q-network that improves learning efficiency by prioritizing important transitions in the replay buffer. The TSCH network state includes available channels, interference indicators, and slots, while the action represents the scheduling choices made by the agent. The replay buffer stores experiences, and transitions are assigned priorities based on the temporal difference (TD) error.
+
+During training, actions are selected using an $\epsilon$-greedy policy, and transitions are stored with a priority determined by the TD error. When the buffer contains enough samples, a mini-batch is sampled based on priority, and importance-sampling weights and target values are calculated. The Q-network is updated using gradient descent, and priorities are adjusted while the target network is periodically updated.
+
+\begin{algorithm}
+\caption{PER-DQN for TSCH Scheduling}
+\begin{algorithmic}
+
+\State Initialize replay buffer, Q-network, target network
+\State Set $\epsilon$, $\beta$
+
+\For{each episode}
+    \State Reset environment
+    \For{each step}
+    
+        \If{random action with probability $\epsilon$}
+            \State Choose random action
+        \Else
+            \State Choose action with highest Q-value
+        \EndIf
+        
+        \State Execute action and observe reward and next state
+        \State Compute TD error
+        \State Assign priority and store transition
+        
+        \If{buffer has enough samples}
+            \State Sample mini-batch using priority
+            \State Compute importance-sampling weights
+            \State Compute target values
+            \State Train network and update priorities
+        \EndIf
+        
+        \State Update state
+        \State Update target network periodically
+        \State Adjust $\epsilon$ and $\beta$
+        
+    \EndFor
+\EndFor
+
+\end{algorithmic}
+\end{algorithm}
+
+The algorithm continuously updates its policy to minimize interference in the network by focusing on important experiences. Exploration gradually shifts toward exploitation, and the agent’s performance is evaluated based on reward and packet delivery ratio (PDR), ensuring improved scheduling decisions and higher reliability.
+
+\section{Results and Evaluation}
+
+\subsection{Simulation Setup}
+
+The proposed energy efficient TSCH scheduling approach is evaluated using the ns3 network simulator. A wireless sensor network is considered in which the number of nodes is varied from fifty to five hundred to analyze the scalability of the proposed method. The sensor nodes are deployed over a two dimensional area and communicate using a multi hop communication model.
+
+Each node is assumed to have limited energy and is capable of sensing, processing, and transmitting data. The Ad hoc On demand Distance Vector routing protocol is used as the base routing mechanism, and the proposed scheduling strategy is applied to improve network performance under dynamic network conditions.
+
+The simulation is carried out for a fixed duration, during which packets are transmitted from a source node to a destination node. The number of transmitted packets is varied gradually in order to study the impact of traffic load on network performance. Different scenarios are considered by changing both the number of nodes and packet transmission rates.
+
+During the simulation, communication issues occur due to energy depletion and network conditions. The proposed method dynamically adapts scheduling decisions based on node conditions such as residual energy and link quality. The performance parameters obtained from the simulation are used for further analysis of the proposed approach.
+
+
+
+
+\subsection{Evaluation Metrics}
+
+The performance of the proposed scheduling approach is evaluated using standard network performance metrics. Packet delivery ratio is used to measure the reliability of the network by calculating the ratio of successfully received packets to the total number of transmitted packets. A higher packet delivery ratio indicates better network performance and efficient scheduling.
+
+End to end delay is considered to evaluate the time required for a data packet to travel from the source node to the destination node. It reflects the efficiency of the scheduling mechanism in delivering data within a short duration. Lower delay values indicate faster communication and improved network performance.
+
+Throughput is another important metric that represents the rate at which data is successfully delivered over the network. It is measured in terms of the amount of data received at the destination within the simulation time. Higher throughput indicates better utilization of network resources.
+
+Energy consumption is used to analyze the efficiency of the scheduling mechanism in terms of resource usage. Since sensor nodes have limited energy, efficient energy utilization is essential for increasing network lifetime. The proposed approach aims to reduce unnecessary energy consumption by avoiding failed transmissions and distributing traffic effectively.
+
+In addition, communication overhead is considered to measure the extra cost involved in maintaining network connectivity. It is calculated based on the difference between transmitted and successfully received packets. Lower overhead indicates more efficient scheduling and reduced network congestion.
+
+\subsection{Data Generation}
+
+The data used for evaluation is generated through simulation experiments. Multiple simulation runs are conducted by varying the number of nodes and packet transmission rates. The obtained results are recorded for different configurations and are used to analyze the performance of the proposed scheduling approach under varying network conditions.
+
+\subsection{Performance Analysis}
+
+To evaluate the performance of the AODV routing protocol, simulations were conducted by varying the number of nodes from 50 to 200 while keeping the packet count constant.
+
+\subsection{Performance Evaluation Graphs}
+
+\subsubsection{Nodes vs Packet Delivery Ratio (PDR)}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/nodes_vs_pdr.png}
+\caption{Nodes vs Packet Delivery Ratio (PDR)}
+\end{figure}
+
+As the number of nodes increases, the packet delivery ratio decreases due to higher congestion, collisions, and frequent route failures in dense wireless networks.
+
+\subsubsection{Nodes vs End-to-End Delay}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/nodes_vs_delay.png}
+\caption{Nodes vs End-to-End Delay}
+\end{figure}
+
+The delay increases with the number of nodes due to increased traffic load, queueing delays, and longer routing paths in dense networks.
+
+\subsubsection{Nodes vs Jitter}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/nodes_vs_jitter.png}
+\caption{Nodes vs Jitter}
+\end{figure}
+
+Jitter increases as the number of nodes increases due to variations in packet delay caused by congestion and dynamic route changes.
+
+\subsubsection{Nodes vs Throughput}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/nodes_vs_throughput.png}
+\caption{Nodes vs Throughput}
+\end{figure}
+
+Throughput initially increases with the number of nodes due to better utilization of network resources. However, after a certain point, it decreases due to congestion, packet losses, and increased collisions.
+
+\subsubsection{Nodes vs Energy Consumption}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/nodes_vs_energy.png}
+\caption{Nodes vs Energy Consumption}
+\end{figure}
+
+Energy consumption increases gradually as more nodes participate in communication, leading to higher transmission and reception energy usage.
+
+\subsubsection{Nodes vs Communication Overhead}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/nodes_vs_overhead.png}
+\caption{Nodes vs Communication Overhead}
+\end{figure}
+
+Communication overhead increases significantly with the number of nodes due to more routing control packets and route maintenance operations.
+
+\subsubsection{Packets vs Packet Delivery Ratio (PDR)}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/packets_vs_pdr.png}
+\caption{Packets vs Packet Delivery Ratio (PDR)}
+\end{figure}
+
+As the number of packets increases, the packet delivery ratio decreases due to higher congestion and network load.
+
+\subsubsection{Packets vs Delay}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/packets_vs_delay.png}
+\caption{Packets vs Delay}
+\end{figure}
+
+The delay increases with the number of packets because higher traffic leads to increased queuing time and transmission delays.
+
+\subsubsection{Packets vs Throughput}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/packets_vs_throughput.png}
+\caption{Packets vs Throughput}
+\end{figure}
+
+Throughput initially increases with packet load due to better utilization, but may decrease at higher loads due to congestion and packet loss.
+
+\subsubsection{Nodes PDR vs Packets PDR}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/intersect_pdr.png}
+\caption{Nodes PDR vs Packets PDR}
+\end{figure}
+
+The graph compares the packet delivery ratio for nodes and packets on a common scale. The curves intersect at a point, indicating similar performance under certain conditions, while differences show the impact of node density and traffic load on network reliability.
+
+\subsubsection{Nodes Delay vs Packets Delay}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\linewidth]{figures/intersect_delay.png}
+\caption{Nodes Delay vs Packets Delay}
+\end{figure}
+
+The graph shows the variation of delay for nodes and packets on a common scale. The intersection point represents similar delay conditions, while the divergence indicates increased congestion and network load effects.
+
+\FloatBarrier
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth,height=0.9\textheight,keepaspectratio]{figures/Flowchart.png}
+    \caption{Flowchart of Energy-Efficient TSCH Scheduling using Reinforcement Learning in NS-3}
+    \label{fig:flowchart}
+\end{figure}
+
+\FloatBarrier
+
+\section{Conclusion}
+
+This project focused on improving energy-efficient access control under network constraints using adaptive scheduling techniques. The system was implemented using NS-3 simulation with AODV routing protocol and evaluated under different network conditions by varying the number of nodes and packet loads.
+
+The performance of the network was analyzed using key metrics such as Packet Delivery Ratio (PDR), delay, jitter, throughput, energy consumption, and communication overhead. The results showed that as the number of nodes and packets increased, network congestion also increased, leading to a decrease in PDR and an increase in delay, jitter, and overhead.
+
+It was observed that throughput initially improved with increased network activity but degraded at higher loads due to collisions and packet losses. Energy consumption also increased gradually as more nodes participated in communication.
+
+Overall, the results demonstrate that network performance is highly dependent on node density and traffic load. The study highlights the importance of efficient scheduling and resource management techniques to maintain reliable and energy-efficient communication in dynamic network environments.
+
+
+\section*{Declarations}
+\subsection*{Ethical Approval}
+This manuscript reports studies that do not involve human participants, human data, human tissue, or animals.
+
+\subsection*{Conflict of Interest}
+The authors have no conflict of interest to declare that are relevant to the content of this article.
+
+\subsection*{Authors' Contributions}
+S. Gopikrishnan contributed to the conceptualization, Formal analysis, drafting the original manuscript, and designing the experimental protocols. Author-2 was responsible for Conceptualization, methodology, software implementation, and dataset curation. Author3 contributed to conceptualization, supervision, and in-depth analysis of the experimental results. Author-3 handled the review and editing of the final draft, as well as the overall validation of the study results.
+
+
+\subsection*{Funding}
+The authors did not receive financial support from any organization for the submitted work.
+
+\subsection*{Availability of data and materials}
+Data sharing is not applicable to this article, as no new data were created or analyzed in this study.
+
+\subsection*{Acknowledgment}
+We acknowledge that the hardware utilized in this research for evaluation is a part of the Intel IoT Center for Excellence, VIT-AP University. 
+
+\bibliographystyle{cas-model2-names}
+\bibliography{references}
+
+
+\end{document}
+
