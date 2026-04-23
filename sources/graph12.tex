@@ -1,0 +1,38 @@
+\begin{tikzpicture}
+\begin{axis}[
+width=\linewidth,
+height=6cm,
+xlabel={Number of Nodes},
+ylabel={Normalized Performance},
+legend pos=north west,
+grid=major]
+
+% Proposed
+\addplot[fill=blue!20] coordinates {
+(50,0.90)
+(100,0.85)
+(150,0.75)
+(200,0.60)
+} \closedcycle;
+\addlegendentry{Proposed}
+
+% AODV
+\addplot[fill=red!20] coordinates {
+(50,0.75)
+(100,0.70)
+(150,0.60)
+(200,0.50)
+} \closedcycle;
+\addlegendentry{AODV}
+
+% S-MAC
+\addplot[fill=green!20] coordinates {
+(50,0.78)
+(100,0.72)
+(150,0.65)
+(200,0.52)
+} \closedcycle;
+\addlegendentry{S-MAC}
+
+\end{axis}
+\end{tikzpicture}

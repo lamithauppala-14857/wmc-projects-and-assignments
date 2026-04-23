@@ -1,0 +1,52 @@
+\begin{tikzpicture}
+\begin{axis}[
+width=\linewidth,
+height=8cm, % �� increase height
+xlabel={Number of Nodes},
+ylabel={Throughput (kbps)},
+grid=both,
+grid style={draw=gray!20},
+major grid style={draw=gray!50},
+legend style={
+    at={(0.02,0.98)},
+    anchor=north west,
+    fill=white,
+    draw=black,
+    font=\small
+},
+tick label style={font=\small},
+label style={font=\small}
+]
+
+% Proposed
+\addplot[blue, ultra thick, mark=*, mark size=3pt]
+coordinates {(50,20)(100,100)(150,150)(200,230)};
+\addlegendentry{Proposed}
+
+% AODV
+\addplot[red, thick, dashed, mark=square*, mark size=2.5pt]
+coordinates {(50,15)(100,90)(150,135)(200,210)};
+\addlegendentry{AODV}
+
+% LEACH
+\addplot[green!60!black, thick, dashdotted, mark=triangle*, mark size=2.5pt]
+coordinates {(50,18)(100,95)(150,140)(200,215)};
+\addlegendentry{LEACH}
+
+% OLSR
+\addplot[orange, thick, dotted, mark=diamond*, mark size=2.5pt]
+coordinates {(50,17)(100,92)(150,138)(200,212)};
+\addlegendentry{OLSR}
+
+% DSDV
+\addplot[purple, thick, mark=o, mark size=2.5pt]
+coordinates {(50,16)(100,93)(150,139)(200,214)};
+\addlegendentry{DSDV}
+
+% DSR
+\addplot[brown, thick, dashed, mark=star, mark size=2.5pt]
+coordinates {(50,14)(100,91)(150,136)(200,211)};
+\addlegendentry{DSR}
+
+\end{axis}
+\end{tikzpicture}

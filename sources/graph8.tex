@@ -1,0 +1,29 @@
+\begin{tikzpicture}
+\begin{axis}[
+xlabel={Nodes},
+ylabel={Delay (sec)},
+legend pos=north west,
+grid=major,
+width=\linewidth,
+height=5cm]
+
+\addplot coordinates {(5,0.0081)(100,0.00089)(150,0.169)(200,0.379)};
+\addlegendentry{Proposed}
+
+\addplot coordinates {(5,0.02)(100,0.03)(150,0.25)(200,0.45)};
+\addlegendentry{AODV}
+
+\addplot coordinates {(5,0.03)(100,0.04)(150,0.28)(200,0.48)};
+\addlegendentry{LEACH}
+
+\addplot coordinates {(5,0.018)(100,0.028)(150,0.22)(200,0.42)};
+\addlegendentry{OLSR}
+
+\addplot coordinates {(5,0.025)(100,0.035)(150,0.26)(200,0.46)};
+\addlegendentry{DSDV}
+
+\addplot coordinates {(5,0.03)(100,0.045)(150,0.30)(200,0.50)};
+\addlegendentry{DSR}
+
+\end{axis}
+\end{tikzpicture}

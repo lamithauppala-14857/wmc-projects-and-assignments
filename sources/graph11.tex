@@ -1,0 +1,28 @@
+\begin{tikzpicture}
+\begin{axis}[
+only marks,
+mark=*,
+width=\linewidth,
+height=6cm,
+xlabel={Number of Nodes},
+ylabel={Overhead (packets)},
+legend pos=north west,
+grid=major]
+
+\addplot coordinates {(50,24)(100,4)(150,120)(200,510)};
+\addlegendentry{Proposed}
+
+\addplot coordinates {(50,60)(100,100)(150,220)(200,520)};
+\addlegendentry{AODV}
+
+\addplot coordinates {(50,55)(100,95)(150,200)(200,480)};
+\addlegendentry{S-MAC}
+
+\addplot coordinates {(50,50)(100,85)(150,190)(200,450)};
+\addlegendentry{B-MAC}
+
+\addplot coordinates {(50,65)(100,110)(150,230)(200,540)};
+\addlegendentry{X-MAC}
+
+\end{axis}
+\end{tikzpicture}

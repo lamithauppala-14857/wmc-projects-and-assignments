@@ -1,0 +1,52 @@
+\begin{tikzpicture}
+\begin{axis}[
+width=\linewidth,
+height=7cm,
+xlabel={Number of Nodes},
+ylabel={Packet Delivery Ratio (\%)},
+grid=both,
+grid style={line width=.1pt, draw=gray!30},
+major grid style={line width=.2pt,draw=gray!50},
+legend style={
+    at={(0.02,0.98)},
+    anchor=north west,
+    draw=black,
+    fill=white,
+    font=\small
+},
+tick label style={font=\small},
+label style={font=\small}
+]
+
+% Proposed (THICK + DARK)
+\addplot[blue, thick, mark=*, mark size=2.5pt]
+coordinates {(50,92)(100,99)(150,80)(200,65)};
+\addlegendentry{Proposed}
+
+% AODV
+\addplot[red, thick, dashed, mark=square*, mark size=2.5pt]
+coordinates {(50,90)(100,95)(150,75)(200,60)};
+\addlegendentry{AODV}
+
+% LEACH
+\addplot[green!60!black, thick, dashdotted, mark=triangle*, mark size=2.5pt]
+coordinates {(50,88)(100,93)(150,74)(200,59)};
+\addlegendentry{LEACH}
+
+% OLSR
+\addplot[orange, thick, dotted, mark=diamond*, mark size=2.5pt]
+coordinates {(50,89)(100,94)(150,76)(200,61)};
+\addlegendentry{OLSR}
+
+% DSDV
+\addplot[purple, thick, mark=o, mark size=2.5pt]
+coordinates {(50,87)(100,92)(150,73)(200,58)};
+\addlegendentry{DSDV}
+
+% DSR
+\addplot[brown, thick, dashed, mark=star, mark size=2.5pt]
+coordinates {(50,86)(100,91)(150,72)(200,57)};
+\addlegendentry{DSR}
+
+\end{axis}
+\end{tikzpicture}
